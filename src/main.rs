@@ -2,7 +2,7 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+    HttpResponse::Ok().body("<p style='background: #565656'><img src='https://actix.rs/img/logo-large.png' width='250'></p>")
 }
 
 #[post("/echo")]
