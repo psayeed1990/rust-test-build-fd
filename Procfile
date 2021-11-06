@@ -1,1 +1,1 @@
-web: cargo run
+web: cargo build && cargo run
