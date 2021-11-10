@@ -23,8 +23,8 @@ async fn manual_hello() -> impl Responder {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
-    let port = env::var("HOST").expect("Host not set");
-    let host = env::var("PORT").expect("Port not set");
+    let host = env::var("HOST").expect("Host not set");
+    let port = env::var("PORT").expect("Port not set");
     HttpServer::new(|| {
         
         App::new()
