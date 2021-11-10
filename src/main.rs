@@ -16,13 +16,15 @@ async fn manual_hello() -> impl Responder {
     HttpResponse::Ok().body("Hey there!")
 }
 
-fn get_server_port() -> u16 {
-    env::var("PORT").ok().and_then(|p| p.parse().ok()).unwrap_or(8080)
-}
+// fn get_server_port() -> u16 {
+//     env::var("PORT").ok().and_then(|p| p.parse().ok()).unwrap_or(8080)
+// }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
+    let port = env::var("HOST").expect("Host not set");
+    let host = env::var("PORT").expect("Port not set");
     HttpServer::new(|| {
         
         App::new()
@@ -30,7 +32,7 @@ async fn main() -> std::io::Result<()> {
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(format!("127.0.0.1:{}", get_server_port()))?
+    .bind(format!("{}:{}", host, port))?
     .run()
     .await
 }
