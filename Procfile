@@ -1,1 +1,1 @@
-web: /workspace/bin/rust-test-build-fd
+web: /workspace/bin/rust-build-test-fd
