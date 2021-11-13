@@ -1,1 +1,1 @@
-web: cargo build && cargo run
+web: /workspace/bin/rust-test-build-fd
